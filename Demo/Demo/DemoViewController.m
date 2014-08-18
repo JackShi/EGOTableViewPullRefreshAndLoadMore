@@ -9,35 +9,39 @@
 #import "DemoViewController.h"
 
 @interface DemoViewController ()
+{
+    EGORefreshTableHeaderView *egoRefreshTableHeaderView;
+    BOOL isRefreshing;
+    
+    LoadMoreTableFooterView *loadMoreTableFooterView;
+    BOOL isLoadMoreing;
+    
+    int dataRows;
+}
 
 @end
 
 @implementation DemoViewController
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
-    
-    _isRefreshing = NO;
-    
-    _dataRows = 20;
-    
-    if (_egoRefreshTableHeaderView == nil)
+    isRefreshing = NO;
+    dataRows = 20;
+
+    if (egoRefreshTableHeaderView == nil)
     {
-		_egoRefreshTableHeaderView = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.tableView.bounds.size.height, self.view.frame.size.width, self.tableView.bounds.size.height)];
-		_egoRefreshTableHeaderView.delegate = self;
-		[self.tableView addSubview:_egoRefreshTableHeaderView];
+		egoRefreshTableHeaderView = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.tableView.bounds.size.height, self.view.frame.size.width, self.tableView.bounds.size.height )];
+		egoRefreshTableHeaderView.delegate = self;
+		[self.tableView addSubview:egoRefreshTableHeaderView];
 	}
-	[_egoRefreshTableHeaderView refreshLastUpdatedDate];
+	[egoRefreshTableHeaderView refreshLastUpdatedDate];
     
-    if (_loadMoreTableFooterView == nil)
+    if (loadMoreTableFooterView == nil)
     {
-        _loadMoreTableFooterView = [[LoadMoreTableFooterView alloc] initWithFrame:CGRectMake(0.0f, self.tableView.contentSize.height, self.view.frame.size.width, self.tableView.bounds.size.height)];
-		_loadMoreTableFooterView.delegate = self;
-		[self.tableView addSubview:_loadMoreTableFooterView];
+        loadMoreTableFooterView = [[LoadMoreTableFooterView alloc] initWithFrame:CGRectMake(0.0f, self.tableView.contentSize.height, self.view.frame.size.width, self.tableView.bounds.size.height)];
+		loadMoreTableFooterView.delegate = self;
+		[self.tableView addSubview:loadMoreTableFooterView];
     }
     
     [self reloadData];
@@ -47,52 +51,45 @@
 {
     [self.tableView reloadData];
     
-    _loadMoreTableFooterView.frame = CGRectMake(0.0f, self.tableView.contentSize.height, self.view.frame.size.width, self.tableView.bounds.size.height);
+    loadMoreTableFooterView.frame = CGRectMake(0.0f, self.tableView.contentSize.height, self.view.frame.size.width, self.tableView.bounds.size.height);
 }
 
 #pragma mark UIScrollViewDelegate Methods
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-	[_egoRefreshTableHeaderView egoRefreshScrollViewDidScroll:scrollView];
-    
-    [_loadMoreTableFooterView loadMoreScrollViewDidScroll:scrollView];
+	[egoRefreshTableHeaderView egoRefreshScrollViewDidScroll:scrollView];
+    [loadMoreTableFooterView loadMoreScrollViewDidScroll:scrollView];
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-	[_egoRefreshTableHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
-    
-    [_loadMoreTableFooterView loadMoreScrollViewDidEndDragging:scrollView];
+	[egoRefreshTableHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
+    [loadMoreTableFooterView loadMoreScrollViewDidEndDragging:scrollView];
 }
 
 #pragma mark EGORefreshTableHeaderDelegate Methods
 
 - (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view
 {
-    _isRefreshing = YES;
-    
+    isRefreshing = YES;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        
-        //从网络刷新数据需要一定延迟
+        // waiting for loading data from internet
         sleep(3);
-        
-        _dataRows = 20; //刷新后又重新显示前20条最新数据
-        
+        dataRows = 20; // show first 20 records after refreshing
         dispatch_sync(dispatch_get_main_queue(), ^{
-            
-            //下载完成
-            _isRefreshing = NO;
+            // complete refreshing
+            isRefreshing = NO;
             [self reloadData];
             
-            [_egoRefreshTableHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.tableView];
+            [egoRefreshTableHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.tableView];
         });
     });
 }
 
 - (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView*)view
 {
-    return _isRefreshing;
+    return isRefreshing;
 }
 
 - (NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view
@@ -104,29 +101,26 @@
 
 - (void)loadMoreTableFooterDidTriggerLoadMore:(LoadMoreTableFooterView*)view
 {
-    _isLoadMoreing = YES;
+    isLoadMoreing = YES;
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        
-        //从网络下载更多数据需要一定延迟
+        // waiting for loading data from internet
         sleep(3);
-        
-        _dataRows += 20;//多加载20条数据
+        dataRows += 20; // add 20 more records
         
         dispatch_sync(dispatch_get_main_queue(), ^{
-            
-            //下载完成
-            _isLoadMoreing = NO;
+            // complete loading...
+            isLoadMoreing = NO;
             
             [self reloadData];
             
-            [_loadMoreTableFooterView loadMoreScrollViewDataSourceDidFinishedLoading:self.tableView];
+            [loadMoreTableFooterView loadMoreScrollViewDataSourceDidFinishedLoading:self.tableView];
         });
     });
 }
 - (BOOL)loadMoreTableFooterDataSourceIsLoading:(LoadMoreTableFooterView*)view
 {
-    return _isLoadMoreing;
+    return isLoadMoreing;
 }
 
 #pragma mark - Table view data source
@@ -140,10 +134,9 @@
 {
     if (section == 0)
     {
-        return _dataRows;
+        return dataRows;
     }
-    else
-    {
+    else {
         return 1;
     }
 }
@@ -159,7 +152,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"第 %04d 行数据", [indexPath row]+1];
+    cell.textLabel.text = [NSString stringWithFormat:@"Row %d", [indexPath row] + 1];
     
     return cell;
 }

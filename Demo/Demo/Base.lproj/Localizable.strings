@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  Demo
+
+  Created by Jack Shi on 18/08/2014.
+  Copyright (c) 2014 Jack Shi. All rights reserved.
+*/
+
+"Last Updated" = "Last Updated";
+"Release to refresh..." = "Release to refresh...";
+"Pull down to refresh..." = "Pull down to refresh...";
+"Loading..." = "Loading...";
+
+
+"Release to load more..." = "Release to load more...";
+"Pull up to load more..." = "Pull up to load more...";
+"Loading more..." = "Loading more...";

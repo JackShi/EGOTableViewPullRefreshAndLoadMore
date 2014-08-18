@@ -40,6 +40,7 @@
 		04376A2C19A1DF6F00B68DB3 /* whiteArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04376A1A19A1DF6F00B68DB3 /* whiteArrow@2x.png */; };
 		04376A2D19A1DF6F00B68DB3 /* whiteArrowLoadMore.png in Resources */ = {isa = PBXBuildFile; fileRef = 04376A1B19A1DF6F00B68DB3 /* whiteArrowLoadMore.png */; };
 		04376A2E19A1DF6F00B68DB3 /* whiteArrowLoadMore@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04376A1C19A1DF6F00B68DB3 /* whiteArrowLoadMore@2x.png */; };
+		04376A3F19A1E56200B68DB3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04376A4119A1E56200B68DB3 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,12 @@
 		04376A1A19A1DF6F00B68DB3 /* whiteArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whiteArrow@2x.png"; sourceTree = "<group>"; };
 		04376A1B19A1DF6F00B68DB3 /* whiteArrowLoadMore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteArrowLoadMore.png; sourceTree = "<group>"; };
 		04376A1C19A1DF6F00B68DB3 /* whiteArrowLoadMore@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whiteArrowLoadMore@2x.png"; sourceTree = "<group>"; };
+		04376A3019A1E40400B68DB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main_iPhone.strings; sourceTree = "<group>"; };
+		04376A4019A1E56200B68DB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		04376A4219A1E56E00B68DB3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main_iPhone.strings"; sourceTree = "<group>"; };
+		04376A4319A1E56E00B68DB3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main_iPad.strings"; sourceTree = "<group>"; };
+		04376A4419A1E56E00B68DB3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		04376A4519A1E56E00B68DB3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +179,7 @@
 				0437698219A1D96000B68DB3 /* InfoPlist.strings */,
 				0437698519A1D96000B68DB3 /* main.m */,
 				0437698719A1D96000B68DB3 /* Demo-Prefix.pch */,
+				04376A4119A1E56200B68DB3 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -306,6 +314,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 0437696D19A1D96000B68DB3;
 			productRefGroup = 0437697719A1D96000B68DB3 /* Products */;
@@ -333,6 +342,7 @@
 				04376A2819A1DF6F00B68DB3 /* grayArrow@2x.png in Resources */,
 				04376A2A19A1DF6F00B68DB3 /* grayArrowLoadMore@2x.png in Resources */,
 				0437699519A1D96000B68DB3 /* Images.xcassets in Resources */,
+				04376A3F19A1E56200B68DB3 /* Localizable.strings in Resources */,
 				04376A2919A1DF6F00B68DB3 /* grayArrowLoadMore.png in Resources */,
 				04376A2719A1DF6F00B68DB3 /* grayArrow.png in Resources */,
 				04376A2019A1DF6F00B68DB3 /* blackArrow@2x.png in Resources */,
@@ -392,6 +402,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0437698319A1D96000B68DB3 /* en */,
+				04376A4419A1E56E00B68DB3 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -400,6 +411,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				0437698C19A1D96000B68DB3 /* Base */,
+				04376A3019A1E40400B68DB3 /* en */,
+				04376A4219A1E56E00B68DB3 /* zh-Hans */,
 			);
 			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
@@ -408,6 +421,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0437698F19A1D96000B68DB3 /* Base */,
+				04376A4319A1E56E00B68DB3 /* zh-Hans */,
 			);
 			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
@@ -418,6 +432,15 @@
 				043769A519A1D96000B68DB3 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		04376A4119A1E56200B68DB3 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04376A4019A1E56200B68DB3 /* Base */,
+				04376A4519A1E56E00B68DB3 /* zh-Hans */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

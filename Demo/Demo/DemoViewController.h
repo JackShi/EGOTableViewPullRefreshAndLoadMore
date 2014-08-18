@@ -11,16 +11,5 @@
 #import "LoadMoreTableFooterView.h"
 
 @interface DemoViewController : UITableViewController<EGORefreshTableHeaderDelegate, LoadMoreTableFooterDelegate>
-{
-    EGORefreshTableHeaderView *_egoRefreshTableHeaderView;
-    BOOL  _isRefreshing;
-    
-    
-    LoadMoreTableFooterView *_loadMoreTableFooterView;
-    BOOL  _isLoadMoreing;
-    
-    
-    int   _dataRows;
-}
 
 @end

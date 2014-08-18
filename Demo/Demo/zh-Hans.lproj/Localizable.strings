@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  Demo
+
+  Created by Jack Shi on 18/08/2014.
+  Copyright (c) 2014 Jack Shi. All rights reserved.
+*/
+
+"Last Updated" = "上次刷新时间";
+"Release to refresh..." = "释放立即刷新...";
+"Pull down to refresh..." = "下拉刷新...";
+"Loading..." = "正在刷新...";
+
+
+"Release to load more..." = "释放立即加载更多...";
+"Pull up to load more..." = "上拉加载更多...";
+"Loading more..." = "正在加载更多...";

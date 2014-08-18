@@ -2,7 +2,11 @@ EGOTableViewPullRefreshAndLoadMore
 ==================================
 This project's initial codes are from [EGOPullRefreshAndLoadMore](https://github.com/oyangjian/EGOPullRefreshAndLoadMore), which is inspired by [EGOTableViewPullRefresh](https://github.com/enormego/EGOTableViewPullRefresh). 
 
+### Usage
+Please check out the demo project included.
 
+![image](https://github.com/JackShi/EGOTableViewPullRefreshAndLoadMore/blob/master/PullRefresh.gif)
+![image](https://github.com/JackShi/EGOTableViewPullRefreshAndLoadMore/blob/master/LoadMore.gif)
 ## Requirements
 - iOS 7.0 and greater
 - ARC

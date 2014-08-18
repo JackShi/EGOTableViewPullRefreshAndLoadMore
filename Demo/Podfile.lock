@@ -1,10 +1,10 @@
 PODS:
-  - EGOTableViewPullRefreshAndLoadMore (1.0)
+  - EGOTableViewPullRefreshAndLoadMore (1.0.1)
 
 DEPENDENCIES:
   - EGOTableViewPullRefreshAndLoadMore
 
 SPEC CHECKSUMS:
-  EGOTableViewPullRefreshAndLoadMore: b41815ba88d07cf7133817646fd1adf49e11f4d5
+  EGOTableViewPullRefreshAndLoadMore: cdb3c3ca9355515894a7d53b7aa606aab03a0305
 
 COCOAPODS: 0.33.1

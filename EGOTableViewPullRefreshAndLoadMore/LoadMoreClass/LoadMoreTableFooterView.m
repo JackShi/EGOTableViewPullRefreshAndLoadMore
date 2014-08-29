@@ -45,7 +45,7 @@
 		_arrowImage=layer;
 		
 		UIActivityIndicatorView *view = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-		view.frame = CGRectMake(25.0f, frame.size.height - 38.0f, 20.0f, 20.0f);
+        view.frame = CGRectMake(25.0f, label.frame.origin.y, 20.0f, 20.0f);
 		[self addSubview:view];
 		_activityView = view;
 		

@@ -234,5 +234,22 @@
 
 }
 
+#pragma mark - Manually refresh view update
+- (void)egoRefreshScrollViewDataSourceStartManualLoading:(UIScrollView *)scrollView {
+    [self setState:EGOOPullRefreshLoading];
+    
+    //animating pull down scroll view
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         scrollView.contentInset = UIEdgeInsetsMake(60.0f, 0.0f, 0.0f, 0.0f);
+                         scrollView.contentOffset = CGPointMake(0, -60.0f);
+                     }
+     ];
+    
+    //triggering refreshview regular refresh
+    if ([self.delegate respondsToSelector:@selector(egoRefreshTableHeaderDidTriggerRefresh:)]) {
+        [self.delegate egoRefreshTableHeaderDidTriggerRefresh:self];
+    }
+}
 
 @end

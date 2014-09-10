@@ -152,7 +152,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"Row %d", [indexPath row] + 1];
+    cell.textLabel.text = [NSString stringWithFormat:@"Row %ld", [indexPath row] + 1];
     
     return cell;
 }

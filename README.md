@@ -13,7 +13,7 @@ Please check out the demo project included.
 - ARC
 
 ## Install
-### Cocoapods
+### CocoaPods
 The easiest way to install EGOTableViewPullRefreshAndLoadMore is using CocoaPods:
 
 1) Add the pod to podfile 
